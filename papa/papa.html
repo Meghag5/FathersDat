@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>Slide in on Scroll</title>
+    </head>
+    <body>
+
+        <div class="site-wrap">
+
+            <h1>Happy Fathers Day</h1>
+           <p style="text-align: center;">Papa you are the best father in the world.</p>
+           <p>You have made are life as beautiful as the garden and always be to support to achieve the height of the clouds. You always help us to get out from the hard situation. You helped me always to move forward in my career. You never differentiated me on my gender and always suported me.My father gave me the greatest gift anyone could give another person, he believed in me. Like this papa always support me and always be together with me in every journey of my life. </p>
+           <p>You are my hero dad. Love u so much....</p>
+            <img src="36.jpg" class="align-left slide-in">
+            
+            <img src="2.jpg" class="align-right slide-in">
+            <img src="3.jpg" class="align-left slide-in">    
+            <img src="4.jpg" class="align-right slide-in">
+            <img src="5.jpg" class="align-left slide-in" height="700px">         
+            <img src="6.jpg" class="align-right slide-in">
+            <img src="7.jpg" class="align-left slide-in">   
+            <img src="8.jpg" class="align-right slide-in">
+            <img src="9.jpg" class="align-left slide-in">
+            <img src="10.jpg" class="align-left slide-in">
+            <img src="11.jpg" class="align-right slide-in">
+            <img src="12.jpg" class="align-left slide-in">    
+            <img src="13.jpg" class="align-right slide-in">
+            <img src="14.jpg" class="align-left slide-in">         
+            <img src="15.jpg" class="align-right slide-in">
+            <img src="16.jpg" class="align-left slide-in">   
+            <img src="17.jpg" class="align-right slide-in">
+            <img src="18.jpg" class="align-left slide-in">
+            <img src="19.jpg" class="align-right slide-in">
+            <img src="20.jpg" class="align-left slide-in">
+            <img src="21.jpg" class="align-right slide-in">
+            <img src="22.jpg" class="align-left slide-in">    
+            <img src="23.jpg" class="align-right slide-in">
+            <img src="24.jpg" class="align-left slide-in">         
+            <img src="25.jpg" class="align-right slide-in">
+            <img src="26.jpg" class="align-left slide-in">   
+            <img src="27.jpg" class="align-right slide-in">
+            <img src="28.jpg" class="align-left slide-in">
+            <img src="29.jpg" class="align-left slide-in">
+            <img src="30.jpg" class="align-right slide-in">
+            <img src="31.jpg" class="align-left slide-in">    
+            <img src="32.jpg" class="align-right slide-in">
+            <img src="33.jpg" class="align-left slide-in">         
+            <img src="34.jpg" class="align-right slide-in">
+            <img src="35.jpg" class="align-left slide-in">   
+            <img src="1.jpg" class="align-right slide-in">
+            <img src="37.jpg" class="align-left slide-in">
+            <img src="38.jpg" class="align-right slide-in">
+            <img src="39.jpg" class="align-left slide-in">
+            <img src="40.jpg" class="align-right slide-in">
+            <img src="41.jpg" class="align-left slide-in">
+            <img src="42.jpg" class="align-right slide-in">
+            <img src="43.jpg" class="align-left slide-in">    
+            <img src="44.jpg" class="align-right slide-in">
+            <img src="45.jpg" class="align-left slide-in">         
+            <img src="46.jpg" class="align-right slide-in">
+            <img src="47.jpg" class="align-left slide-in">   
+            <img src="48.jpg" class="align-right slide-in">
+            <img src="49.jpg" class="align-left slide-in">
+            <img src="50.jpg" class="align-left slide-in">
+            <img src="51.jpg" class="align-right slide-in">
+            <img src="52.jpg" class="align-left slide-in">    
+            <img src="53.jpg" class="align-right slide-in">
+
+           <video src="WhatsApp Video 2020-06-21 at 11.06.36.mp4"></video>
+</div>
+
+        <script>
+            
+            function debounce(func, wait = 20, immediate = true) {
+                var timeout;
+                return function() {
+                    var context = this, args = arguments;
+                    var later = function() {
+                        timeout = null;
+                        if (!immediate) func.apply(context, args);
+                    };
+                    var callNow = immediate && !timeout;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later,wait);
+                    if (callNow) func.apply(context, args);
+                };
+            };
+
+            const sliderImages = document.querySelectorAll('.slide-in');
+
+            function checkSlide(e) {
+                sliderImages.forEach(sliderImage => {
+                    //half way through the image
+                    const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height/2;
+                    // bottom of the image
+                    const imageBottom = sliderImage.offsetTop + sliderImage.height;
+                    const isHalfShown = slideInAt > sliderImage.offsetTop;
+                    const isNotScrolledPast = window.scrollY < imageBottom;
+                    if (isHalfShown && isNotScrolledPast)
+                    {
+                        sliderImage.classList.add('active');
+                    }
+                    else{
+                        sliderImage.classList.remove('active');
+                    }
+                  
+                });
+            }
+
+            window.addEventListener('scroll', debounce(checkSlide));
+
+        </script>
+
+            <style>
+               html{
+                   box-sizing: border-box;
+                   background: url('background.jpg');
+                   background-image: cover;
+                   font-family: 'helvetica neue';
+                   font-size: 20px;
+                   font-weight: 200;
+               }
+
+               body {
+                   margin: 0;
+               }
+
+               *, *:before, *:after {
+                   box-sizing: inherit;
+               }
+
+               h1{
+                   margin-top: 0;
+               }
+
+               img{
+            width: 700px;
+            height: 900px;
+            }
+
+               .site-wrap {
+                   max-width: 850px;
+                   margin: 100px auto;
+    
+                  /* background: rgb(200, 247, 225);*/
+                   padding: 40px;
+                   text-align: justify;
+               }
+          /*     #grad1 {
+   height: 200px;
+  background-color: red; /* For browsers that do not support gradients */
+ /* background-image: linear-gradient(red, yellow);*/ /* Standard syntax (must be last) 
+} */
+              
+               .site-wrap h1{
+                  color: red;
+                  text-align: center;
+                  background-color: wheat;
+                  padding: 5px;
+                  border-radius: 10px;
+
+              }
+              .site-wrap p{
+                  font-size: 27px;
+                  color: green;
+                  background-color: rgb(218, 208, 218);
+                 
+              }
+
+               .align-left{
+                   float: left;
+                   margin-right: 50px;
+                   margin-bottom: 3px;
+               }
+
+               .align-right {
+                   float: right;
+                   margin-left: 20px;
+                   margin-bottom: 3px;
+
+               }
+
+               .slide-in {
+                   opacity: 0;
+                   transition: all .5s;
+               }
+
+               .align-left.slide-in {
+                   transform: translateX(-30%) scale(0.95);
+               }
+
+               .align-right.slide-in {
+                   transform: translateX(30%) scale(0.95);
+               }
+
+               .slide-in.active {
+                   opacity: 1;
+                   transform: translateX(0%) scale(1);
+               }
+
+           </style>
+
+
+        
+    </body>
+</html>
